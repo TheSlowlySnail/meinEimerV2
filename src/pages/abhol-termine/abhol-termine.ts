@@ -17,22 +17,18 @@ import { ManageDataProvider } from '../../providers/manage-data/manage-data';
 })
 export class AbholTerminePage {
   abholdate: Town[] = [];
+  town: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public manageData: ManageDataProvider
-  ) {
-  }
+  ) {}
 
   ionViewDidLoad() {
-    this.manageData.getTownData().then(
-
-      (data)=>{
-        console.log('this.manageData.getTownData().then');
-
-        this.abholdate = this.manageData.townArry;
-      }
-    );
+    this.town = this.manageData.town.toUpperCase();
+    this.manageData.getTownData().then(data => {
+      this.abholdate = this.manageData.townArry;
+    });
   }
 }

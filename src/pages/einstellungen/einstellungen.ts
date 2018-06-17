@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ManageDataProvider } from '../../providers/manage-data/manage-data';
 
 /**
  * Generated class for the EinstellungenPage page.
@@ -11,15 +12,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-einstellungen',
-  templateUrl: 'einstellungen.html',
+  templateUrl: 'einstellungen.html'
 })
+
+
 export class EinstellungenPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  selectedTown: string = "gutach";
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public managaData: ManageDataProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EinstellungenPage');
   }
 
+  async structurMethodes() {
+    console.log(this.selectedTown);
+    await this.managaData.saveTown(this.selectedTown);
+    await this.managaData.loadTown();
+    await this.managaData.getTownData();
+  }
 }

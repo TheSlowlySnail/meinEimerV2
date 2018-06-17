@@ -16,4 +16,15 @@
 
 <ion-content padding>
 
+<ion-item>
+  <ion-label>Toppings</ion-label>
+<ion-select [(ngModel)]="selectedTown" multiple="false">
+    <ion-option value="gutach">Gutach</ion-option>
+    <ion-option value="winden">Winden</ion-option>
+  </ion-select>
+</ion-item>
+
+
+<button ion-button full (click)="structurMethodes()">Full Button</button>
+
 </ion-content>

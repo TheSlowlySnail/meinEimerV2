@@ -23,10 +23,16 @@ export class AbholTerminePage {
     public navParams: NavParams,
     public manageData: ManageDataProvider
   ) {
-    this.manageData.getTownData();
   }
 
   ionViewDidLoad() {
-    this.abholdate = this.manageData.townArry;
+    this.manageData.getTownData().then(
+
+      (data)=>{
+        console.log('this.manageData.getTownData().then');
+
+        this.abholdate = this.manageData.townArry;
+      }
+    );
   }
 }

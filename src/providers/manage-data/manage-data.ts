@@ -32,7 +32,7 @@ export class ManageDataProvider {
   async loadTown() {
     await this.nativeStorage.getItem('town').then(
       data => {
-        console.log(data);
+        //console.log(data);
         this.town = data;
         console.log('loadTown() Town: ' + this.town);
       },
@@ -46,10 +46,11 @@ export class ManageDataProvider {
     await this.http.get('assets/' + this.town + '.json').subscribe(data => {
       this.jsonArray = data;
 
-      console.log(data);
+      //console.log(data);
+      this.townArry = [];
       for (let obj of this.jsonArray) {
-        debugger;
-        console.log(obj);
+
+       // console.log(obj);
         let town: Town = new Town(
           obj['LOCATION'],
           moment(obj['DTEND;VALUE=DATE']).toDate(),
@@ -60,17 +61,12 @@ export class ManageDataProvider {
         }
       }
     });
-    console.log(this.townArry);
+    //console.log(this.townArry);
   }
 
   public getJsonView() {
     this.getTownData();
 
-    //console.log(data)
-    //console.log(this.jsonResult[0]);
-    for (let obj of this.jsonArray) {
-      debugger;
-      console.log(obj);
-    }
+
   }
 }

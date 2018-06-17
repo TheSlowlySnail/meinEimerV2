@@ -12,19 +12,11 @@ export class HomePage implements OnInit {
     public navCtrl: NavController,
     public managaData: ManageDataProvider
   ) {
-    this.structurMethodes();
+
   }
   ngOnInit(): void {
 
   }
 
-  async structurMethodes(){
-    await this.managaData.saveTown('gutach');
-    await this.managaData.loadTown();
-    await this.managaData.getTownData();
 
-
-
-
-  }
 }

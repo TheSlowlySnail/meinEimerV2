@@ -1,0 +1,27 @@
+<!--
+  Generated template for the AbholTerminePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>abholTermine</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of abholdate">
+      <ion-icon [name]="item.location" item-start></ion-icon>
+      {{item.summery}}
+      <div class="item-note" item-end>
+        {{item.notificationDate | amLocale:'de' | amDateFormat:'dddd, Do MMMM YYYY' }}
+      </div>
+    </button>
+  </ion-list>
+
+</ion-content>
